@@ -4,6 +4,8 @@
 
 
 ```r
+library(knitr)
+opts_chunk$set(fig.path = "figure/plot")
 data <- read.csv("activity.csv", header = TRUE, sep = ",", na.strings = "NA")
 ```
 
@@ -23,7 +25,7 @@ steps_data <- aggregate(steps ~ date, data = steps_data, FUN = sum)
 hist(steps_data$steps, col = "red", xlab = "Steps", main = "Total Steps Taken Each Day")
 ```
 
-![](PA1_template_files/figure-html/histogram-1.png)<!-- -->
+![](figure/plotunnamed-chunk-3-1.png)<!-- -->
 
 * Calculate and report the mean and median of the total number of steps taken per day
 
@@ -53,7 +55,7 @@ int_data <- aggregate(steps~interval, data = data, FUN = mean , na.rm = TRUE )
 plot(int_data$interval, int_data$steps, type = "l",ylab="Steps",xlab="Interval")
 ```
 
-![](PA1_template_files/figure-html/time series-1.png)<!-- -->
+![](figure/plotunnamed-chunk-5-1.png)<!-- -->
 
 * Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -116,7 +118,7 @@ filled_steps_data <- aggregate(steps ~ date, data = dataFilled, FUN = sum)
 hist(filled_steps_data$steps, col = "red", xlab = "Steps", main = "Total Steps Taken Each Day")
 ```
 
-![](PA1_template_files/figure-html/histogram w filled data-1.png)<!-- -->
+![](figure/plotunnamed-chunk-9-1.png)<!-- -->
 
 ```r
 mean(filled_steps_data$steps)
@@ -161,4 +163,4 @@ xyplot(steps ~ interval | factor(day), data = interval_data2, aspect = 1/2,
     type = "l")
 ```
 
-![](PA1_template_files/figure-html/plotting weekday weekend-1.png)<!-- -->
+![](figure/plotunnamed-chunk-12-1.png)<!-- -->
